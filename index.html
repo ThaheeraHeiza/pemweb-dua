@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LAPORAN TEORI</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style id="style-mode">
+    body {
+      background-color: #f4f4f4;
+      color: #333;
+      font-family: Arial, sans-serif;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .section {
+      margin: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #fff;
+    }
+    .btn-toggle {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-4">
+    <h1>LAPORAN TEORI</h1>
+    <h2>Thaheera Heiza Syarifatunnisa | 202332041</h2>
+
+    <button class="btn btn-secondary my-3" onclick="toggleMode()">Ganti Tampilan</button>
+
+    <div class="section">
+      <h3 onclick="toggleSection(this)">Mengapa menggunakan CSS dan JavaScript dalam pemrograman web?</h3>
+      <div class="content">
+        <p>CSS digunakan untuk mengatur tampilan dan layout halaman web. JavaScript memberi interaktivitas seperti validasi form atau AJAX.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3 onclick="toggleSection(this)">Bagaimana CSS dan JavaScript dapat diintegrasikan dalam pemrograman web?</h3>
+      <div class="content">
+        <p><strong>CSS:</strong><br>
+        - Inline CSS: <code>&lt;p style=&quot;color: blue;&quot;&gt;Teks&lt;/p&gt;</code><br>
+        - Internal CSS: dalam tag <code>&lt;style&gt;</code><br>
+        - External CSS: <code>&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</code>
+        </p>
+        <p><strong>JavaScript:</strong><br>
+        - Inline JS: <code>&lt;button onclick=&quot;alert('Hello!')&quot;&gt;</code><br>
+        - Internal JS: dalam tag <code>&lt;script&gt;</code><br>
+        - External JS: <code>&lt;script src=&quot;script.js&quot;&gt;</code>
+        </p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3 onclick="toggleSection(this)">Jelaskan apa saja keuntungan menggunakan JavaScript dan CSS?</h3>
+      <div class="content">
+        <p><strong>Keuntungan JavaScript:</strong> Interaktivitas, validasi, AJAX, aplikasi kompleks.<br>
+        <strong>Keuntungan CSS:</strong> Pisahkan konten & tampilan, lebih cepat, responsif, hemat waktu.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3 onclick="toggleSection(this)">Jelaskan apa saja keuntungan menggunakan Bootstrap?</h3>
+      <div class="content">
+        <p>Bootstrap mempermudah pembuatan halaman web responsif dengan komponen siap pakai, kompatibel lintas browser, dan banyak dokumentasi.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3 onclick="toggleSection(this)">Contoh penggunaan Bootstrap dan penjelasannya</h3>
+      <div class="content">
+        <pre>&lt;button class=&quot;btn btn-primary&quot;&gt;Klik Saya&lt;/button&gt;</pre>
+        <p>Class <code>btn btn-primary</code> untuk tombol biru, <code>container mt-5</code> memberi margin dan padding.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleSection(header) {
+      const content = header.nextElementSibling;
+      const confirmHide = confirm("Apakah Anda ingin menyembunyikan isi bagian ini?");
+      if (confirmHide) content.style.display = (content.style.display === 'none') ? 'block' : 'none';
+    }
+
+    function toggleMode() {
+      const styleTag = document.getElementById("style-mode");
+      if (styleTag.getAttribute("data-mode") === "bad") {
+        styleTag.innerHTML = `
+          body {
+            background-color: #ff00ff;
+            color: lime;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/640px-PNG_transparency_demonstration_1.png');
+            background-size: cover;
+          }
+          h1, h2, h3 {
+            font-family: 'Papyrus', fantasy;
+            text-shadow: 2px 2px red;
+          }
+          .section {
+            border: dashed 5px orange;
+            background-color: yellow;
+            transform: rotate(1deg);
+          }
+        `;
+        styleTag.setAttribute("data-mode", "good");
+      } else {
+        styleTag.innerHTML = `
+          body {
+            background-color: #f4f4f4;
+            color: #333;
+            font-family: Arial, sans-serif;
+          }
+          h1, h2 {
+            text-align: center;
+          }
+          .section {
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+          }
+          .btn-toggle {
+            margin-bottom: 10px;
+          }
+        `;
+        styleTag.setAttribute("data-mode", "bad");
+      }
+    }
+  </script>
+</body>
+</html>
